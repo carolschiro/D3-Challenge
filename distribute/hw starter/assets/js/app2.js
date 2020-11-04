@@ -1,46 +1,4 @@
-// I worked with Erin Wills (TA) and the following people:  Chimoa Maduko and Grant Cheney_____________
-// Remember to comment your code as we discuss it.  Commenting the code is required.
-// Prior to starting, make sure  you have already created and cloned your repo.
-
-
-
-// Refer to the pdf diagram to see the visual relationship of the code
-
-// Layout of this document
-// 1.  Data Exploration (always do this; understand its structure)
-// 2.  Define Functions (a and e used in page load, a through e used in click event)
-//      a.  xScale(hairData, chosenXAxis):  Scales data to svg width (var width defined in Section 3: Setup SVG )
-//              inputs:  (data like "hairData", an axis name like "hair_length")
-//              returns:  scaled data function
-//      b.  renderAxes(newXScale, xAxis): Uses the xScale function and sets new x-axis values
-//              inputs:  (function like "xLinearScale", object like xAxis)
-//              outputs:  returns new xAxis values
-//      c.  renderCircles(circlesGroup, newXScale, chosenXAxis):  Takes an object like "circlesGroup" and scales data of a given axis and assigns it to the objects attribute "cx"
-//              inputs:  (object like "circlesGroup", a function like "xLinearScale", a specified axis name like "chosenXAxis" (ie "hair_length"))
-//              outputs:  returns an updated circlesGroup object with new x values
-//      d.  **new** rendertextCircles(textcirclesGroup, newXScale, chosenXAxis)
-//              inputs: (objects like "textcirclesGroup", function like "xLinearScale", a specified axis name like "chosenXAxis" (ie "hair_length"))
-//              outputs:  returns an updated textcirclesGroup object with new labels
-//      e.  updateToolTip:  updates circlesGroup with textbox messages
-//              inputs:  (a specified axis name like "chosenXAxis", objects like "circlesGroup")
-//              outputs:  calls the D3 function tip() that helps automate the tooltip message generation - returns html that is assigned to circlesGroup and has mouseover, mouseout interactivity
-// 3.  Setup SVG
-// 4.  BRING in Data and ADD Structure /layout
-//      a.  convert data to numericals
-//      b.  scale and assign axis
-//      c.  create circlsGroupAll object and circlesGroup and textcirclesGroup object
-//      d.  create 2 x-label groups, one y-label group, one albumGroup, one tooltip group
-// 5. ADD updates upon clicking axis text  
-//      a. Reassign these objects with new values after click
-//          i.  xLinearScale
-//          ii. xAxis
-//          iii. circlesGroup
-//          iv. textcirclesGroup
-//          v.  circlesGroup/tooltip
-//          vi.  x-axis styling 
-
-
-
+// I worked with Erin Wills (TA) and the following people:  Chimoa Maduko and Grant Cheney
 
 
 // #######################  1.  Data Exploration  ################ //
@@ -48,10 +6,6 @@
 //  Data has following columns:  rockband, hair_length, num_hits, num_albums
 //  Once read by d3.csv then it is like an array of 20 objects as key-value pair format so I will need to use foreach or arrow functions to get arrays
 //  console.log(hairData) see below after d3.csv
-
-
-
-
 
 
 // #################### 2.  Define Function ###############//
@@ -138,10 +92,6 @@ function xScale(dataset, chosenXAxis) {
     return circlesGroup;
   }
 
-
-
-
-
 //########################  3.  SVG Setup ###################################//
 
 var svgWidth = 960;
@@ -169,10 +119,6 @@ var svg = d3
 // Append an SVG group
 var chartGroup = svg.append("g")
   .attr("transform", `translate(${margin.left}, ${margin.top})`);
-
-
-
-
 
 
 // #################### 4.  BRING in Data and ADD Structure ###############//
